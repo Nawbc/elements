@@ -49,6 +49,10 @@ export const httpOperation: IHttpOperation = {
                 type: 'string',
                 contentMediaType: 'application/octet-stream',
               },
+              someFiles: {
+                type: 'array',
+                contentMediaType: 'application/octet-stream',
+              },
             },
             required: ['name', 'completed', 'someRequiredEnum'],
           },
