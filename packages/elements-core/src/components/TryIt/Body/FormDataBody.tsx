@@ -5,7 +5,12 @@ import { omit } from 'lodash';
 import * as React from 'react';
 
 import { FileUploadParameterEditor } from '../Parameters/FileUploadParameterEditors';
-import { mapSchemaPropertiesToParameters, parameterSupportsFileUpload } from '../Parameters/parameter-utils';
+import { MultipleFilesUploadParameterEditor } from '../Parameters/MultipleFilesUploadParameterEditor';
+import {
+  mapSchemaPropertiesToParameters,
+  parameterSupportsFileUpload,
+  parameterSupportsMultipleFilesUpload,
+} from '../Parameters/parameter-utils';
 import { ParameterEditor } from '../Parameters/ParameterEditor';
 import { BodyParameterValues, ParameterOptional } from './request-body-utils';
 
@@ -44,6 +49,7 @@ export const FormDataBody: React.FC<FormDataBodyProps> = ({
       <Panel.Content className="sl-overflow-y-auto ParameterGrid OperationParametersContent">
         {mapSchemaPropertiesToParameters(parameters, required).map(parameter => {
           const supportsFileUpload = parameterSupportsFileUpload(parameter);
+          const supportsMultipleFilesUpload = parameterSupportsMultipleFilesUpload(parameter);
           const value = values[parameter.name];
 
           if (supportsFileUpload) {
@@ -51,12 +57,27 @@ export const FormDataBody: React.FC<FormDataBodyProps> = ({
               <FileUploadParameterEditor
                 key={parameter.name}
                 parameter={parameter}
-                value={value instanceof File ? value : undefined}
-                onChange={newValue =>
+                value={value as any}
+                onChange={newValue => {
                   newValue
                     ? onChangeValues({ ...values, [parameter.name]: newValue })
-                    : onChangeValues(omit(values, parameter.name))
-                }
+                    : onChangeValues(omit(values, parameter.name));
+                }}
+              />
+            );
+          }
+
+          if (supportsMultipleFilesUpload) {
+            return (
+              <MultipleFilesUploadParameterEditor
+                key={parameter.name}
+                parameter={parameter}
+                values={value === '' ? [] : (value as File[])}
+                onChange={newValue => {
+                  newValue
+                    ? onChangeValues({ ...values, [parameter.name]: newValue })
+                    : onChangeValues(omit(values, parameter.name));
+                }}
               />
             );
           }

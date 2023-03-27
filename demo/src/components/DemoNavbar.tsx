@@ -74,7 +74,6 @@ const SpecUrlInput = () => {
             setDescriptionUrl(DEFAULT_API_URL);
           }
         }}
-        enterKeyHint={null}
       />
 
       <Button onClick={() => setDescriptionUrl(value)}>Try It!</Button>

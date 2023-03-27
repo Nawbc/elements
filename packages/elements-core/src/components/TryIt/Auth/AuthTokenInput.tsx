@@ -30,7 +30,6 @@ export const AuthTokenInput: React.FC<AuthTokenInputProps> = ({ type, name, valu
           type="text"
           required
           onChange={e => onChange(e.currentTarget.value)}
-          enterKeyHint={null}
         />
       </Flex>
     </>

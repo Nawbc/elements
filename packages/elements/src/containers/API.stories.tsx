@@ -3,6 +3,7 @@ import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { badgesForSchema } from '../__fixtures__/api-descriptions/badgesForSchema';
+import { fileDemo } from '../__fixtures__/api-descriptions/fileDemo';
 import { simpleApiWithInternalOperations } from '../__fixtures__/api-descriptions/simpleApiWithInternalOperations';
 import { simpleApiWithoutDescription } from '../__fixtures__/api-descriptions/simpleApiWithoutDescription';
 import { todosApiBundled } from '../__fixtures__/api-descriptions/todosApiBundled';
@@ -58,6 +59,12 @@ OpenApi3Schema.args = {
   apiDescriptionDocument: todosApiBundled,
 };
 OpenApi3Schema.storyName = 'Open Api 3.0 Schema';
+
+export const FileDemo = Template.bind({});
+FileDemo.args = {
+  apiDescriptionDocument: fileDemo,
+};
+FileDemo.storyName = 'File Demo';
 
 export const BadgesForSchema = Template.bind({});
 BadgesForSchema.args = {
