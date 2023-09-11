@@ -215,7 +215,7 @@ export const fileDemo = {
             in: 'header',
             description: 'The product package name, same as domain',
             schema: {
-              default: 'com.deskbtm.letscollab',
+              default: 'com.deskbtm.indiebase',
               type: 'string',
             },
           },
@@ -249,7 +249,7 @@ export const fileDemo = {
             in: 'header',
             description: 'The product package name, same as domain',
             schema: {
-              default: 'com.deskbtm.letscollab',
+              default: 'com.deskbtm.indiebase',
               type: 'string',
             },
           },
@@ -388,7 +388,7 @@ export const fileDemo = {
             in: 'query',
             description: "The same as project's packageName",
             schema: {
-              default: 'com.deskbtm.letscollab',
+              default: 'com.deskbtm.indiebase',
               type: 'string',
             },
           },
@@ -443,7 +443,7 @@ export const fileDemo = {
             in: 'header',
             description: 'The product package name, same as domain',
             schema: {
-              default: 'com.deskbtm.letscollab',
+              default: 'com.deskbtm.indiebase',
               type: 'string',
             },
           },
@@ -481,7 +481,7 @@ export const fileDemo = {
             in: 'header',
             description: 'The product package name, same as domain',
             schema: {
-              default: 'com.deskbtm.letscollab',
+              default: 'com.deskbtm.indiebase',
               type: 'string',
             },
           },
@@ -1286,12 +1286,12 @@ export const fileDemo = {
     },
   },
   info: {
-    title: 'Letscollab API',
-    description: 'Letscollab lets-community REST API ',
+    title: 'Indiebase API',
+    description: 'Indiebase lets-community REST API ',
     version: '1.0.0',
     contact: {
-      name: 'deskbtm/letscollab',
-      url: 'https://letscollab.deskbtm.com/contact',
+      name: 'deskbtm/indiebase',
+      url: 'https://indiebase.deskbtm.com/contact',
       email: 'deskbtm@outlook.com',
     },
   },
@@ -1415,7 +1415,7 @@ export const fileDemo = {
           },
           password: {
             type: 'string',
-            default: 'letscollab',
+            default: 'indiebase',
           },
         },
         required: ['email', 'password'],
@@ -1435,7 +1435,7 @@ export const fileDemo = {
           domain: {
             type: 'string',
             description: "The same as project's packageName",
-            default: 'letscollab.letscollab.deskbtm.com',
+            default: 'indiebase.indiebase.deskbtm.com',
           },
           possession: {
             description: 'Possession',
@@ -1561,7 +1561,7 @@ export const fileDemo = {
           },
           domain: {
             type: 'string',
-            default: 'letscollab.letscollab.deskbtm.com',
+            default: 'indiebase.indiebase.deskbtm.com',
           },
         },
         required: ['username', 'roleName', 'domain'],
@@ -1602,11 +1602,11 @@ export const fileDemo = {
         properties: {
           bucket: {
             type: 'string',
-            default: 'letscollab-dev',
+            default: 'indiebase-dev',
           },
           description: {
             type: 'string',
-            default: 'letscollab dev bucket',
+            default: 'indiebase dev bucket',
           },
         },
         required: ['bucket'],
@@ -1617,12 +1617,12 @@ export const fileDemo = {
           name: {
             type: 'string',
             description: 'Project name',
-            default: 'letscollab',
+            default: 'indiebase',
           },
           githubRepoName: {
             type: 'string',
             description: 'Github repository name',
-            default: 'letscollab',
+            default: 'indiebase',
           },
           orgName: {
             type: 'string',
@@ -1635,7 +1635,7 @@ export const fileDemo = {
           packageName: {
             type: 'string',
             description: 'Project domain equals project name + organization domain',
-            default: 'letscollab.letscollab.deskbtm.com',
+            default: 'indiebase.indiebase.deskbtm.com',
           },
           description: {
             type: 'string',
@@ -1657,7 +1657,7 @@ export const fileDemo = {
           name: {
             type: 'string',
             description: 'Project name',
-            default: 'letscollab',
+            default: 'indiebase',
           },
           contactEmail: {
             type: 'string',
@@ -1677,18 +1677,18 @@ export const fileDemo = {
           name: {
             type: 'string',
             description: 'Org name',
-            default: 'deskbtm-letscollab',
+            default: 'deskbtm-indiebase',
           },
           githubOrgName: {
             type: 'string',
             description: 'Github organization name',
-            default: 'deskbtm-letscollab',
+            default: 'deskbtm-indiebase',
           },
           domain: {
             type: 'string',
             description:
-              'Organization domain is the unique id for letscollab. if the package name is not specific, the project will use reverse words that project name + organization domain as package name. e.g com.deskbtm.letscollab.xxxx.',
-            default: 'letscollab.deskbtm.com',
+              'Organization domain is the unique id for indiebase. if the package name is not specific, the project will use reverse words that project name + organization domain as package name. e.g com.deskbtm.indiebase.xxxx.',
+            default: 'indiebase.deskbtm.com',
           },
           contactEmail: {
             type: 'string',
@@ -1742,12 +1742,12 @@ export const fileDemo = {
           domain: {
             type: 'string',
             description: 'Organization domain',
-            default: 'letscollab.deskbtm.com',
+            default: 'indiebase.deskbtm.com',
           },
           homepage: {
             type: 'string',
             description: 'Organization homepage',
-            default: 'https://letscollab.deskbtm.com',
+            default: 'https://indiebase.deskbtm.com',
           },
         },
         required: ['id', 'contactEmail'],

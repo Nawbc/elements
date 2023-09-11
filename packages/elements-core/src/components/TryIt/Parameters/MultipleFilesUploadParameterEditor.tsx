@@ -45,10 +45,10 @@ export const MultipleFilesUploadParameterEditor: React.FC<MultipleFilesUploadPar
       </label>
       <Text mx={3}>:</Text>
       <Flex alignItems="center">
-        <Flex flex={1} flexWrap={true} justifyContent="start" alignItems="center">
+        <Flex style={{ flexWrap: 'wrap' }} flex={1} justifyContent="start" alignItems="center">
           {values?.map((val, index) => {
             return (
-              <Flex style={{ minWidth: 200 }} flex={1} key={fileUploadInputId + index}>
+              <Flex style={{ minWidth: 130 }} flex={1} key={fileUploadInputId + index}>
                 <Input
                   style={{ paddingLeft: 15 }}
                   aria-label={parameter.name}
