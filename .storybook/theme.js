@@ -1,4 +1,3 @@
-
 import { create } from '@storybook/theming/create';
 
 export default create({
@@ -7,7 +6,8 @@ export default create({
   // brand
   brandTitle: 'Stoplight Elements',
   brandUrl: 'https://stoplight.io',
-  brandImage: 'https://stoplight.io/images/home/logo-blue-black.png',
+  brandImage:
+    'https://global-uploads.webflow.com/6320e912264435aca2ab0351/64e3b74e5c500056903b91e9_Stoplight%20SmartBear%20Logo_Dark.svg',
 
   // UI
   appBg: 'white',
@@ -17,6 +17,7 @@ export default create({
   colorSecondary: '#008eff',
 
   // Typography
-  fontBase: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', system-ui, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'',
-  fontCode: 'Inconsolata, Monaco, Consolas, \'Courier New\', Courier, monospace',
+  fontBase:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+  fontCode: "Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace",
 });
