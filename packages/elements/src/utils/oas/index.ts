@@ -95,9 +95,10 @@ function computeChildNodes(
         const operationDocument = transformer({ document, path, method });
         let parsedUri;
         const encodedPath = String(encodePointerFragment(path));
+        const tags = operationDocument.tags?.map(tag => tag.name) || [];
 
         if (operationDocument.iid) {
-          parsedUri = `/operations/${operationDocument.iid}`;
+          parsedUri = `/operations/${tags.join('-')}/${operationDocument.iid}`;
         } else {
           parsedUri = uri.replace(encodedPath, slugify(path));
         }
@@ -107,7 +108,7 @@ function computeChildNodes(
           uri: parsedUri,
           data: operationDocument,
           name: operationDocument.summary || operationDocument.iid || operationDocument.path,
-          tags: operationDocument.tags?.map(tag => tag.name) || [],
+          tags,
         });
       } else if (match.type === NodeTypes.Model) {
         const schemaDocument = get(document, jsonPath);
