@@ -1,4 +1,4 @@
-import { HttpParamStyles, IHttpOperation } from '@stoplight/types';
+import { HttpOperationSecurityDeclarationTypes, HttpParamStyles, IHttpOperation } from '@stoplight/types';
 
 export const httpOperation: IHttpOperation = {
   id: '?http-operation-id?',
@@ -282,7 +282,7 @@ export const httpOperation: IHttpOperation = {
     {
       id: '?http-server-todos-pr.stoplight.io?',
       description: 'PR',
-      url: '{proto}://x-{pr}.todos-pr.stoplight.io',
+      url: '{proto}://x-{pr}.todos-pr.stoplight.io:{port}',
       variables: {
         proto: {
           default: 'http',
@@ -290,6 +290,10 @@ export const httpOperation: IHttpOperation = {
         },
         pr: {
           default: '1000',
+        },
+        port: {
+          default: '80',
+          enum: ['443', '80'],
         },
       },
     },
@@ -518,6 +522,107 @@ export const httpOperation: IHttpOperation = {
       },
     ],
   },
+  callbacks: [
+    {
+      key: 'newPet',
+      extensions: {},
+      id: '3245690b6a7fc',
+      method: 'post',
+      path: '{$request.body#/newPetAvailableUrl}',
+      request: {
+        body: {
+          description: 'Callback body description',
+          contents: [
+            {
+              encodings: [],
+              examples: [],
+              id: 'abc',
+              mediaType: 'application/json',
+              schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                properties: {
+                  message: {
+                    examples: ['A new pet has arrived'],
+                    type: 'string',
+                  },
+                },
+                required: ['message'],
+                type: 'object',
+              },
+            },
+          ],
+          id: 'abc',
+          required: true,
+        },
+        cookie: [],
+        headers: [],
+        path: [],
+        query: [],
+      },
+      responses: [
+        {
+          code: '200',
+          contents: [],
+          description: 'Your server returns this code if it accepts the callback',
+          headers: [],
+          id: 'abc',
+        },
+      ],
+      security: [],
+      securityDeclarationType: HttpOperationSecurityDeclarationTypes.InheritedFromService,
+      servers: [],
+      tags: [],
+    },
+    {
+      key: 'returnedPet',
+      extensions: {},
+      id: '07041d5723f4a',
+      method: 'post',
+      path: '{$request.body#/returnedPetAvailableUrl}',
+      request: {
+        body: {
+          contents: [
+            {
+              encodings: [],
+              examples: [],
+              id: 'abc',
+              mediaType: 'application/json',
+              schema: {
+                $schema: 'http://json-schema.org/draft-07/schema#',
+                properties: {
+                  message: {
+                    examples: ['A pet has been returned'],
+                    type: 'string',
+                  },
+                },
+                required: ['message'],
+                type: 'object',
+              },
+            },
+          ],
+          id: 'abc',
+          required: true,
+        },
+        cookie: [],
+        headers: [],
+        path: [],
+        query: [],
+      },
+      responses: [
+        {
+          code: '200',
+          contents: [],
+          description: 'Your server returns this code if it accepts the callback',
+          headers: [],
+          id: 'abc',
+        },
+      ],
+      security: [],
+      securityDeclarationType: HttpOperationSecurityDeclarationTypes.InheritedFromService,
+      servers: [],
+      tags: [],
+    },
+  ],
   tags: [
     {
       id: '?http-tags-todos?',
