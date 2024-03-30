@@ -6,7 +6,12 @@ import { omit } from 'lodash';
 import * as React from 'react';
 
 import { FileUploadParameterEditor } from '../Parameters/FileUploadParameterEditors';
-import { parameterSupportsFileUpload, toParameterSpec } from '../Parameters/parameter-utils';
+import { MultipleFilesUploadParameterEditor } from '../Parameters/MultipleFilesUploadParameterEditor';
+import {
+  parameterSupportsFileUpload,
+  toParameterSpec,
+  parameterSupportsMultipleFilesUpload,
+} from '../Parameters/parameter-utils';
 import { ParameterEditor } from '../Parameters/ParameterEditor';
 import { BodyParameterValues, ParameterOptional } from './request-body-utils';
 
@@ -55,6 +60,7 @@ export const FormDataBody: React.FC<FormDataBodyProps> = ({
           .map(toParameterSpec)
           .map(parameter => {
             const supportsFileUpload = parameterSupportsFileUpload(parameter);
+            const supportsMultipleFilesUpload = parameterSupportsMultipleFilesUpload(parameter);
             const value = values[parameter.name ?? ''];
 
             if (supportsFileUpload) {
@@ -68,6 +74,21 @@ export const FormDataBody: React.FC<FormDataBodyProps> = ({
                       ? onChangeValues({ ...values, [parameter.name]: newValue })
                       : onChangeValues(omit(values, parameter.name))
                   }
+                />
+              );
+            }
+
+            if (supportsMultipleFilesUpload) {
+              return (
+                <MultipleFilesUploadParameterEditor
+                  key={parameter.name}
+                  parameter={parameter}
+                  values={value === '' ? [] : (value as File[])}
+                  onChange={newValue => {
+                    newValue
+                      ? onChangeValues({ ...values, [parameter.name]: newValue })
+                      : onChangeValues(omit(values, parameter.name));
+                  }}
                 />
               );
             }

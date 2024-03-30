@@ -9,7 +9,7 @@ import {
   parameterSupportsFileUpload,
 } from '../Parameters/parameter-utils';
 
-export type BodyParameterValues = Record<string, string | File>;
+export type BodyParameterValues = Record<string, string | File | File[]>;
 export type ParameterOptional = Record<string, boolean>;
 
 export const isFormDataContent = (content: IMediaTypeContent) =>
@@ -59,7 +59,13 @@ const createMultipartRequestBody: RequestBodyCreator = async ({ mediaTypeContent
         continue;
       }
     } else {
-      formData.append(key, value);
+      if (Array.isArray(value)) {
+        for (const val of value) {
+          formData.append(key, val);
+        }
+      } else {
+        formData.append(key, value);
+      }
     }
   }
   return formData;

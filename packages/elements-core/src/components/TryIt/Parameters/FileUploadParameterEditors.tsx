@@ -1,4 +1,6 @@
-import { Flex, Icon, Input, Text } from '@stoplight/mosaic';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Flex, Input, Text } from '@stoplight/mosaic';
 import * as React from 'react';
 
 import { useUniqueId } from '../../../hooks/useUniqueId';
@@ -47,7 +49,7 @@ export const FileUploadParameterEditor: React.FC<FileUploadParameterEditorProps>
         />
         {value && (
           <button className="sl-mr-3 sl-p-2" aria-label="Remove file" onClick={clearFile}>
-            <Icon icon="times" />
+            <FontAwesomeIcon icon={faXmark} size="sm" />
           </button>
         )}
         <div>

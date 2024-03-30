@@ -47,6 +47,18 @@ export function parameterSupportsFileUpload(parameter?: Pick<ParameterSpec, 'sch
   );
 }
 
+export function parameterSupportsMultipleFilesUpload(parameter: Pick<ParameterSpec, 'schema'>) {
+  const items: any = parameter.schema?.items;
+
+  if (!items) return false;
+
+  return (
+    parameter.schema?.type === 'array' &&
+    items.type === 'string' &&
+    (items.contentEncoding === 'base64' || items.contentMediaType === 'application/octet-stream')
+  );
+}
+
 function stringifyValue(value: unknown) {
   return typeof value === 'object' ? JSON.stringify(value) : escapeQuotes(String(value));
 }
